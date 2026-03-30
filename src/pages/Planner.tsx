@@ -271,7 +271,7 @@ export default function Planner() {
                       Day {i + 1}
                     </div>
                     <div className={`text-sm font-semibold mt-1 truncate ${activeDay === i ? "text-foreground" : "text-muted-foreground"}`}>
-                      {day.title}
+                      {day.title.replace(/^Day\s*\d+[:\-\s]*/i, '')}
                     </div>
                   </button>
                 ))}
@@ -289,7 +289,7 @@ export default function Planner() {
                   <div className="flex items-center gap-3">
                     <MapPin className="h-5 w-5 text-accent" />
                     <h3 className="text-xl font-bold font-display text-foreground">
-                      Day {activeDay + 1}: {plan[activeDay]?.title}
+                      Day {activeDay + 1}: {plan[activeDay]?.title.replace(/^Day\s*\d+[:\-\s]*/i, '')}
                     </h3>
                   </div>
                   <span className="badge-gold text-[10px] md:ml-auto w-fit">{style === "luxury" ? "✦ Luxury" : "⛰ Adventure"}</span>
